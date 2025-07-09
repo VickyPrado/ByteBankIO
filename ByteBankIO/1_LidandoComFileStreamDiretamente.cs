@@ -1,6 +1,4 @@
-﻿using ByteBankIO;
-using System.Data;
-using System.Text;
+﻿using System.Text;
 
 partial class Program
 {
