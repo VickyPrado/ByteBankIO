@@ -8,19 +8,19 @@ partial class Program
     {
         var caminhoArquivo = "contas.txt";
 
-        using (var fluxoAquivo = new FileStream(caminhoArquivo, FileMode.Open))
+        using (var fluxoArquivo = new FileStream(caminhoArquivo, FileMode.Open))
         {
             var numeroDeBytesLidos = -1;
             var buffer = new byte[1024]; // 1KB
 
             while (numeroDeBytesLidos != 0)
             {
-                numeroDeBytesLidos = fluxoAquivo.Read(buffer, 0, 1024);
+                numeroDeBytesLidos = fluxoArquivo.Read(buffer, 0, 1024);
                 EscreverBuffer(buffer, numeroDeBytesLidos);
             }
 
             //public override int Read(byte[] array, int offset, int count)
-            fluxoAquivo.Close();
+            fluxoArquivo.Close();
             Console.ReadLine();
         }
     }
