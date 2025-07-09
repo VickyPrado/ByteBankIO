@@ -7,21 +7,22 @@ class Program
     static void Main(string[] args)
     {
         var caminhoArquivo = "contas.txt";
-        var numeroDeBytesLidos = -1;
-        
-        var fluxoAquivo = new FileStream(caminhoArquivo, FileMode.Open);
 
-        var buffer = new byte[1024]; // 1KB
-
-
-        while(numeroDeBytesLidos != 0)
+        using (var fluxoAquivo = new FileStream(caminhoArquivo, FileMode.Open))
         {
-            numeroDeBytesLidos = fluxoAquivo.Read(buffer, 0, 1024);
-            EscreverBuffer(buffer);
-        }        
+            var numeroDeBytesLidos = -1;
+            var buffer = new byte[1024]; // 1KB
 
-        //public override int Read(byte[] array, int offset, int count)
-        Console.ReadLine();
+            while (numeroDeBytesLidos != 0)
+            {
+                numeroDeBytesLidos = fluxoAquivo.Read(buffer, 0, 1024);
+                EscreverBuffer(buffer);
+            }
+
+            //public override int Read(byte[] array, int offset, int count)
+            fluxoAquivo.Close();
+            Console.ReadLine();
+        }        
     }
 
     static void EscreverBuffer(byte[] buffer)
