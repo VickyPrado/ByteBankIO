@@ -7,7 +7,10 @@ partial class Program
 {
     static void Main(string[] args)
     {
-        TestaEscrita();
+        EscritaBinaria();
+        LeituraBinaria();
+
+        System.Console.WriteLine("Aplicação finalizada...");
 
         Console.ReadLine();
     }
