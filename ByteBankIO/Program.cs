@@ -7,10 +7,24 @@ partial class Program
 {
     static void Main(string[] args)
     {
-        UsarStreamDeEntrada();
+        // Console.WriteLine("Digite o seu nome:");
+        // var nome = Console.ReadLine();
 
-        System.Console.WriteLine("Aplicação finalizada...");
+        var linhas = File.ReadAllLines("contas.txt");
+        Console.WriteLine(linhas.Length);
 
-        Console.ReadLine();
+        /*
+        foreach (var linha in linhas)
+        {
+            Console.WriteLine(linha);
+        }
+        */
+
+        var bytesArquivo = File.ReadAllBytes("contas.txt");
+        Console.WriteLine($"Arquivo contas.txt possui {bytesArquivo.Length} bytes");
+
+        File.WriteAllText("escrevendoComAClasseFile.txt", "Testando File.WriteAllText");
+
+        Console.WriteLine("Aplicação finalizada...");
     }
 }
